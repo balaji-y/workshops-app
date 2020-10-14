@@ -1,66 +1,96 @@
-.navbar{
-    height:40px;
-    background-color: blue;
+.navbar {
+    height: 40px;
+    background-color: navy; /* background-* properties - please explore, also background shorthand property */
 }
 
-.nav,.list-unstyled-row{
+.nav, .list-unstyled {
     list-style-type: none;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
-.nav li{
+
+.nav li {
     display: inline;
 }
 
-.nav a{
-    padding:5px 10px;
-    color:white;
+.nav a {
+    padding: 5px 10px;
+    color: white;
     line-height: 40px;
     text-decoration: none;
 }
 
-.nav a:hover{
-    color:white;
+.nav a:hover {
+    color: rgb( 255, 255, 255 );
     background-color: darkgray;
 }
 
-.container{
-    width:80%;
-    margin:auto;
+.container {
+    width: 80%;
+    margin: auto;
 }
 
-.img-fluid{
-    width:100%;
-}
-.text-center{
-    text-align: center;
+.img-fluid {
+    width: 100%;
 }
 
-
-
-.card{
-    border:1px solid darkgrey;
-    padding:50px;
+.card {
+    padding: 20px;
+    border: 1px solid darkgray;
     border-radius: 4px;
 }
 
-.my-3{
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+.text-center {
+    text-align: center !important; /* set this property to this value at any cost */
 }
 
-.row{
+.my-3 {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.row {
+    /* this is a flexbox parent element */
     display: flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    
-
+    flex-direction: row; /* arrange children rowwise, i.e. horizontally */ 
+    flex-wrap: wrap; /* allow children to wrap to next lines instead of overflowing on 1 line */
+    justify-content: space-between; /* extra space on a line is spread between items on the line */
+    align-items: stretch; /* stretch each item on a line to occupy entire height of the line */
 }
 
-.col{
-    flex-basis: 30%;
+.col {
+    flex-basis: 100%; /* like width for flexbox */
+    
+    /* tis is also made a flexbox parent to have the card stretch to full height using align-items */
     display: flex;
     flex-direction: row;
     align-items: stretch;
+}
+
+@media all and (min-width:640px){
+    .col{
+        flex-basis: 47.5%;
+    }
+}
+
+@media all and (min-width:1024px){
+    .col{
+        flex-basis: 30%;
+    }
+}
+
+.message{
+    display:none;
+    border-width: 1px;
+    border-style: solid;
+    padding:5px;
+    border-radius: 4px;
+}
+.message-info{
+    background-color: lightblue;
+    border-color: blue;
+}
+.message-error{
+    background-color:lightpink;
+    border-color:crimson;
 }
